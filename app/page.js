@@ -67,10 +67,12 @@ export default function Home() {
 
     if (filtered.length === 0) {
       setShowNoItemsFound(true);
-      setTimeout(() => {
-        setShowNoItemsFound(false);
-        window.location.reload();
-      }, 5000);
+      if (typeof window !== 'undefined') {
+        setTimeout(() => {
+          setShowNoItemsFound(false);
+          window.location.reload();
+        }, 5000);
+      }
     }
   };
 
@@ -167,4 +169,3 @@ export default function Home() {
     </Box>
   );
 }
-
